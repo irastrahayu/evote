@@ -1,0 +1,41 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="banner">
+    <img src="../../assets/banner.svg" />
+  </div>
+
+  <ion-row class="ion-text-center">
+    <ion-col size="12">
+      <!-- button add  -->
+      <ion-button color="primary" fill="outline" (click)="addJurusan()">
+        <ion-icon name="add-outline"></ion-icon>
+        Add Jurusan
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-list class="item-index">
+    <ion-item *ngFor="let item of jurusans; let i = index">
+      <!-- with number -->
+      <ion-label>
+        <h2>{{i+1}}. {{item.nama}}</h2>
+      </ion-label>
+
+      <!-- edit button -->
+      <ion-button color="primary" fill="outline" (click)="editJurusan(item)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+
+      <!-- delete button -->
+      <ion-button color="danger" fill="outline" (click)="deleteJurusan(item.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

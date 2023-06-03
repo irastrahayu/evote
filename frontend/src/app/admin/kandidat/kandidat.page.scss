@@ -1,0 +1,25 @@
+ion-header {
+  background-color: #33658a;
+
+  img {
+    width: 30%;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+    position: relative;
+  }
+}
+
+.event {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.event-header {
+  ion-button {
+    --border-radius: 10px;
+  }
+}

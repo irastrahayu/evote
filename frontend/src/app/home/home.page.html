@@ -1,0 +1,37 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+</ion-header>
+
+<ion-content class="main-content">
+  <div class="banner">
+    <img src="../../assets/banner.svg" />
+  </div>
+
+  <h2>All Event</h2>
+  <swiper-container class="all-event" [freeMode]="true" [slidesOffsetBefore]="5" [slidesPerView]="1.5"
+    [spaceBetween]="5">
+    <swiper-slide *ngFor="let event of data">
+      <ion-card (click)="eventDetails(event)">
+        <img src="{{event.image}}">
+        <ion-card-header>
+          <ion-card-title style="text-align: center;">{{event.nama_pemilihan}}</ion-card-title>
+          <ion-card-subtitle style="text-align: center;">Periode {{event.periode}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h2>Already Voted</h2>
+  <swiper-container class="recent-event" [freeMode]="true" [slidesOffsetBefore]="5" [slidesPerView]="1.5"
+    [spaceBetween]="5">
+    <swiper-slide *ngFor="let event of alreadyVoteData">
+      <ion-card (click)="eventDetails(event)">
+        <img src="{{event.image}}">
+        <ion-card-header>
+          <ion-card-title style="text-align: center;">{{event.nama_pemilihan}}</ion-card-title>
+          <ion-card-subtitle style="text-align: center;">Periode {{event.periode}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

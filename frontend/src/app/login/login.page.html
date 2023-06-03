@@ -1,0 +1,32 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-icon name="chevron-back-circle-outline" color="light" size="large" routerLink="/welcome"
+    routerDirection="back"></ion-icon>
+  <img src="../../assets/logo-light.svg">
+
+  <div class="login-container ion-padding">
+    <div class="heading ion-padding">
+      <img src="../../assets/1.svg">
+      <h1>Hi again!</h1>
+      <p>Enter account<br>details</p>
+    </div>
+
+    <div class="login-form">
+      <ion-item>
+        <ion-input type="number" fill="outline" placeholder="Enter your NIS" [(ngModel)]="form.nis"></ion-input>
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" fill="outline" placeholder="Enter your password"
+          [(ngModel)]="form.password"></ion-input>
+        <ion-icon name="medical-sharp" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-button expand="block" class="main-button" color="dark" (click)="login()">Log in</ion-button>
+
+    </div>
+  </div>
+</ion-content>

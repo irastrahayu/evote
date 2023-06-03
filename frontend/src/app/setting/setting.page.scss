@@ -1,0 +1,55 @@
+.main-content{
+    --background: #99badd;
+    img{
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        border-radius: 50%;
+        display: block;
+    }
+  
+    h2{
+      margin-top: 20px;
+      font-size: 20px;
+      font-family: 'Quicksand-SemiBold';
+      color: #333;
+    }
+  
+    p{
+      font-size: 15px;
+      font-family: 'Quicksand-Medium';
+      color: #333;
+    }
+  
+  }
+  
+  .profile-container{
+    height: 65vh;
+    width: 100%;
+    background: #fff;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    border-top-left-radius: 75px;
+
+    ion-list{
+      border-radius: 5px;
+      box-shadow: 0px 2px 0px #bebebe;
+      margin-top: 20px;
+
+      ion-label{
+        font-family: 'Quicksand-Medium';
+        color: #333;
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    
+      ion-icon{
+        font-size: 20px;
+        color: #33658a;
+      }
+    }
+  }

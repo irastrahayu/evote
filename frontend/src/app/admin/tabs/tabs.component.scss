@@ -1,0 +1,13 @@
+ion-tab-bar {
+  overflow-x: auto;
+
+  @supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    padding-left: 0px;
+  }
+
+  @supports not (-webkit-touch-callout: none) {
+    /* CSS for other than iOS devices */
+    padding-left: 20%;
+  }
+}

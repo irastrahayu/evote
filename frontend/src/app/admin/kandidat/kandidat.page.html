@@ -1,0 +1,55 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="banner">
+    <img src="../../assets/banner.svg" />
+  </div>
+
+  <div *ngFor="let event of data" class="event">
+    <ion-row class="event-header">
+      <ion-col size="8">
+        <h5>{{event.nama_pemilihan}}</h5>
+      </ion-col>
+
+      <!-- middle center -->
+      <ion-col sizeSm="4" style="text-align: right; padding-right: 10px; padding-top: 15px;">
+        <ion-button (click)="addKandidat(event)" fill="outline" color="secondary" size="small">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+
+    <swiper-container class="all-event" [freeMode]="true" [slidesOffsetBefore]="5" [slidesPerView]="1.5"
+      [spaceBetween]="5">
+      <swiper-slide *ngFor="let kandidat of event.kandidat">
+        <ion-card>
+          <img src="{{kandidat.image}}">
+          <ion-card-header>
+            <ion-card-subtitle style="text-align: center;">{{kandidat.nama_ketua}} |
+              {{kandidat.nama_wakil}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content style="text-align: center;">
+            <ion-button (click)="editKandidat(kandidat)" fill="outline" color="secondary" size="small">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="deleteKandidat(kandidat)" fill="outline" color="danger" size="small">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- if event.kandidat === 0 -->
+    <div *ngIf="event.kandidat.length === 0" style="text-align: center; padding-top: 20px;">
+      <h6>No Kandidat</h6>
+    </div>
+  </div>
+  <br>
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Kandidat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Kandidat Information</p>
+  <br>
+
+  <p>Ketua</p>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter Nama Ketua" [(ngModel)]="form.nama_ketua"></ion-input>
+    <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Kelas Ketua</ion-label>
+    <ion-select [(ngModel)]="form.id_kelas_ketua">
+      <ion-select-option *ngFor="let item of aKelas" value="{{item.id}}">
+        {{item.nama}} | {{item.jurusan.nama}}
+      </ion-select-option>
+    </ion-select>
+    <ion-icon name="options-outline" slot="start"></ion-icon>
+  </ion-item>
+  <br>
+
+  <p>Wakil Ketua</p>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter Nama Wakil Ketua" [(ngModel)]="form.nama_wakil"></ion-input>
+    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Kelas Wakil Ketua</ion-label>
+    <ion-select [(ngModel)]="form.id_kelas_wakil">
+      <ion-select-option *ngFor="let item of aKelas" value="{{item.id}}">
+        {{item.nama}} | {{item.jurusan.nama}}
+      </ion-select-option>
+    </ion-select>
+    <ion-icon name="options-outline" slot="start"></ion-icon>
+  </ion-item>
+  <br>
+
+  <p>Visi & Misi</p>
+  <!-- visi -->
+  <ion-item>
+    <ion-textarea placeholder="Enter Visi" [(ngModel)]="form.visi"></ion-textarea>
+    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+  <!-- misi -->
+  <ion-item>
+    <ion-textarea placeholder="Enter Misi" [(ngModel)]="form.misi"></ion-textarea>
+    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <br>
+  <p>Foto Kandidat</p>
+  <!-- gambar -->
+  <ion-item>
+    <ion-label>Gambar</ion-label>
+    <ion-input type="file" (change)="uploadFile($event)"></ion-input>
+    <ion-icon name="image-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-button expand="block" class="main-button" color="dark" (click)="edit()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>Update</ion-button>
+</ion-content>

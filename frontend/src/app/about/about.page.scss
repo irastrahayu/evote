@@ -1,0 +1,26 @@
+ion-header{
+    ion-title{
+        margin-left: 5px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-family: 'Quicksand-SemiBold';
+        color: #333;
+    }
+
+    ion-button{
+        margin-right: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-family: 'Quicksand-SemiBold';
+        color: #444;
+    }
+}
+
+ion-content{
+    p{
+        font-family: 'Quicksand-Medium';
+        font-size: 15px;
+        color: #444;
+        margin: 20px 20px 0px 20px;
+    }
+}

@@ -1,0 +1,37 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <!-- if(localStorage.getItem('role') == 'admin') -->
+    <ion-tab-button tab="dashboard">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button tab="pemilihan">
+      <ion-icon name="podium-outline"></ion-icon>
+      Pemilihan
+    </ion-tab-button>
+    <ion-tab-button tab="kandidat">
+      <ion-icon name="people-outline"></ion-icon>
+      Kandidat
+    </ion-tab-button>
+
+    <ion-tab-button tab="user">
+      <ion-icon name="person-outline"></ion-icon>
+      User
+    </ion-tab-button>
+
+    <ion-tab-button tab="kelas">
+      <ion-icon name="school-outline"></ion-icon>
+      Kelas
+    </ion-tab-button>
+
+    <ion-tab-button tab="jurusan">
+      <ion-icon name="business-outline"></ion-icon>
+      Jurusan
+    </ion-tab-button>
+
+    <ion-tab-button tab="logout" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      Logout
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

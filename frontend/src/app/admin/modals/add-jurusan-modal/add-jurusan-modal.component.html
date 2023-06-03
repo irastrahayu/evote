@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tambah Jurusan</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Jurusan Information</p>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Nama Kelas" [(ngModel)]="form.nama"></ion-input>
+    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-button expand="block" class="main-button" color="dark" (click)="create()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Create</ion-button>
+</ion-content>

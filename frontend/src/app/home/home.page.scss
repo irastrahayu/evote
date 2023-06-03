@@ -1,0 +1,52 @@
+ion-header {
+  background-color: #33658a;
+
+  img {
+    width: 30%;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+    position: relative;
+  }
+}
+
+ion-content {
+  .banner {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    ion-searchbar {
+      position: absolute;
+      margin-top: -35px;
+      margin-left: 25px;
+      width: calc(100% - 52px);
+      --border-radius: 10px;
+    }
+  }
+
+  h2 {
+    color: #333;
+    font-family: 'Quicksand-SemiBold';
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    font-size: 15px;
+  }
+
+  swiper-slide {
+    display: flex;
+    flex-direction: column;
+
+    ion-card-title {
+      font-family: 'Quicksand-SemiBold';
+    }
+
+    ion-card-subtitle {
+      font-family: 'Quicksand-Medium';
+    }
+  }
+}

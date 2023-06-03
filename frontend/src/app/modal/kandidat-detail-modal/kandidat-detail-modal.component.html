@@ -1,0 +1,91 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+  <ion-buttons slot="end">
+    <ion-button (click)="close()">Close</ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <img src="{{data.image}}">
+    <ion-col size="12">
+      <div class="event-detail">
+        <ion-card-title>Informasi Kandidat</ion-card-title>
+
+        <!-- nama ketua -->
+        <ion-item class="ion-margin-top">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Nama Ketua: </ion-label>
+          <ion-text>{{data.nama_ketua}}</ion-text>
+        </ion-item>
+
+        <!-- kelas ketua -->
+        <ion-item>
+          <ion-icon name="school" slot="start"></ion-icon>
+          <ion-label>Kelas Ketua: </ion-label>
+          <ion-text>{{data.kelas_ketua}}</ion-text>
+        </ion-item>
+        <br>
+        <!-- nama wakil -->
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Nama Wakil: </ion-label>
+          <ion-text>{{data.nama_wakil}}</ion-text>
+        </ion-item>
+        <!-- kelas wakil -->
+        <ion-item>
+          <ion-icon name="school" slot="start"></ion-icon>
+          <ion-label>Kelas Wakil: </ion-label>
+          <ion-text>{{data.kelas_wakil}}</ion-text>
+        </ion-item>
+      </div>
+
+      <div class="event-container">
+        <ion-segment value="visi" [(ngModel)]="selectedSegment">
+          <ion-segment-button value="visi" layout="icon-end">
+            <ion-label>Visi</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="misi" layout="icon-end">
+            <ion-label>Misi</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <div [ngSwitch]="selectedSegment">
+        <div *ngSwitchCase="'visi'">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-text>{{data.visi}}</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </div>
+
+        <div *ngSwitchCase="'misi'">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-text>{{data.misi}}</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </ion-col>
+  </ion-row>
+
+  <ion-footer class="ion-padding fixed-bottom">
+    <ion-button expand="block" (click)="vote()" *ngIf="!isClosed && !isVoted" color="dark">Vote</ion-button>
+    <ion-button expand="block" *ngIf="isClosed" color="dark" disabled>Vote</ion-button>
+    <ion-button expand="block" *ngIf="!isClosed && isVoted" color="dark" disabled>Voted</ion-button>
+  </ion-footer>
+</ion-content>

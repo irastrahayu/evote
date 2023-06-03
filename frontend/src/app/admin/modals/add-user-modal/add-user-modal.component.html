@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tambah User</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>User Information</p>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Nama User" [(ngModel)]="form.name"></ion-input>
+    <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <!-- email -->
+  <ion-item>
+    <ion-input type="email" placeholder="Email User" [(ngModel)]="form.email"></ion-input>
+    <ion-icon name="mail-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Role User</ion-label>
+    <!-- ion select user and admin, and add event while change -->
+    <ion-select [(ngModel)]="form.role" (ionChange)="changeRole($event)">
+      <ion-select-option value="user">User</ion-select-option>
+      <ion-select-option value="admin">Admin</ion-select-option>
+    </ion-select>
+    <ion-icon name="options-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <!-- nis -->
+  <ion-item *ngIf="role === 'user'">
+    <ion-input type="text" placeholder="NIS" [(ngModel)]="form.nis"></ion-input>
+    <ion-icon name="id-card-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-item *ngIf="role === 'user'">
+    <ion-label>Kelas User</ion-label>
+    <ion-select [(ngModel)]="form.id_kelas">
+      <ion-select-option *ngFor="let item of aKelas" value="{{item.id}}">
+        {{item.nama}} | {{item.jurusan.nama}}
+      </ion-select-option>
+    </ion-select>
+    <!-- icon class -->
+    <ion-icon name="ribbon-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <!-- password -->
+  <ion-item>
+    <ion-input type="password" placeholder="Password User" [(ngModel)]="form.password"></ion-input>
+    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-button expand="block" class="main-button" color="dark" (click)="create()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Create</ion-button>
+</ion-content>

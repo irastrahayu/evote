@@ -1,0 +1,115 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+  <ion-buttons slot="end">
+    <ion-button (click)="close()">Close</ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <img src="{{data.image}}">
+    <ion-col size="12">
+      <div class="event-detail">
+        <ion-card-title>{{data.nama_pemilihan}}</ion-card-title>
+        <ion-card-subtitle>Periode {{data.periode}}</ion-card-subtitle>
+
+        <!-- tanggal mulai dengan icon -->
+        <ion-item class="ion-margin-top">
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label>Tanggal Mulai</ion-label>
+          <ion-text>{{data.tanggal_mulai | date: 'dd MMMM YYYY'}}</ion-text>
+        </ion-item>
+
+        <!-- tanggal selesai dengan icon -->
+        <ion-item>
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label>Tanggal Selesai</ion-label>
+          <ion-text>{{data.tanggal_selesai | date: 'dd MMMM YYYY'}}</ion-text>
+        </ion-item>
+      </div>
+
+      <div class="event-container">
+        <ion-segment value="kandidat" [(ngModel)]="selectedSegment">
+          <ion-segment-button value="kandidat" layout="icon-end">
+            <ion-label>Kandidat</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="voting" layout="icon-end">
+            <ion-label>Hasil</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <div [ngSwitch]="selectedSegment">
+        <div *ngSwitchCase="'kandidat'">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row *ngFor="let k of data?.kandidat">
+                <ion-col size="4">
+                  <ion-img src="{{k.image}}" class="kandidat-img"></ion-img>
+                </ion-col>
+                <ion-col size="8">
+                  <ion-card-title>{{k.nama_ketua}} | {{k.nama_wakil}}</ion-card-title>
+                  <ion-card-subtitle>{{k.kelas_ketua}} | {{k.kelas_wakil}}</ion-card-subtitle>
+                  <ion-label>
+                    Informasi Detail pada Kandidat bisa dilihat dengan menekan Details
+                  </ion-label>
+                  <ion-button fill="clear" expand="block" (click)="kandidatDetail(k)">Details</ion-button>
+                </ion-col>
+              </ion-row>
+
+              <!-- jika tidak ada kandidat -->
+              <ion-row *ngIf="data?.kandidat?.length === 0">
+                <ion-col size="12">
+                  <ion-text color="danger" class="ion-text-center">
+                    <b>Belum ada kandidat</b>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card-content>
+        </div>
+
+        <div *ngSwitchCase="'voting'">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row *ngFor="let k of data?.kandidat">
+                <ion-col size="4">
+                  <ion-img src="{{k.image}}" class="kandidat-img"></ion-img>
+                </ion-col>
+                <ion-col size="8">
+                  <ion-card-title>{{k.nama_ketua}} | {{k.nama_wakil}}</ion-card-title>
+                  <ion-card-subtitle>{{k.kelas_ketua}} | {{k.kelas_wakil}}</ion-card-subtitle>
+                  <ion-text color="success">{{k.vote_count}} Suara</ion-text>
+                </ion-col>
+              </ion-row>
+
+              <!-- jika tidak ada kandidat -->
+              <ion-row *ngIf="data?.kandidat?.length === 0">
+                <ion-col size="12">
+                  <ion-text color="danger" class="ion-text-center">
+                    <b>Belum ada kandidat</b>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-footer class="fixed-bottom">
+    <ion-row>
+      <!-- kamu sudah memilih -->
+      <ion-col size="12" class="ion-text-center" *ngIf="isOpen && data.already_vote">
+        <ion-label color="success"><b>Kamu sudah memilih</b></ion-label>
+      </ion-col>
+
+      <!-- belum dibuka -->
+      <ion-col size="12" class="ion-text-center" *ngIf="!isOpen">
+        <ion-label color="danger"><b>{{eventMessage}}</b></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>

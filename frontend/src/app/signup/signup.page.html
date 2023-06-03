@@ -1,0 +1,58 @@
+<ion-header>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-icon name="chevron-back-circle-outline" color="light" size="large" routerLink="/welcome"
+    routerDirection="back"></ion-icon>
+  <img src="../../assets/logo-light.svg">
+
+  <div class="signup-container ion-padding">
+    <div class="heading ion-padding">
+      <img src="../../assets/2.svg">
+      <h1>Great!</h1>
+      <p>Let's get started</p>
+    </div>
+
+    <div class="signup-form">
+
+      <ion-item>
+        <ion-input fill="outline" placeholder="Enter your name" [(ngModel)]="form.name"></ion-input>
+        <ion-icon name="person-sharp" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="email" fill="outline" placeholder="Enter your email" [(ngModel)]="form.email"></ion-input>
+        <ion-icon name="mail-sharp" slot="start"></ion-icon>
+      </ion-item>
+
+      <!-- nis -->
+      <ion-item>
+        <ion-input type="number" fill="outline" placeholder="Enter your NIS" [(ngModel)]="form.nis"></ion-input>
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" fill="outline" placeholder="Create your password"
+          [(ngModel)]="form.password"></ion-input>
+        <ion-icon name="medical-sharp" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <!-- select -->
+        <ion-select placeholder="Select your class" fill="outline" [(ngModel)]="form.id_kelas">
+          <ion-select-option value="" selected>Select your class</ion-select-option>
+          <!-- ng for -->
+          <ion-select-option *ngFor="let class of classes" value="{{class.id}}">{{class.nama}}</ion-select-option>
+        </ion-select>
+        <ion-icon name="school-sharp" slot="start"></ion-icon>
+      </ion-item>
+      <ion-button expand="block" class="main-button" color="dark" (click)="register()">Sign Up</ion-button>
+
+      <div class="login">
+        <p>Already have an account?</p>
+        <ion-button color="dark" fill="clear" routerLink="/login" routerDirection="forward">Log in</ion-button>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

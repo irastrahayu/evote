@@ -1,0 +1,70 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+</ion-header>
+
+<ion-content>
+  <div class="top">
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="upcoming" layout="icon-end">
+        <ion-label>Upcoming</ion-label>
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="running" layout="icon-end">
+        <ion-label>Running</ion-label>
+        <ion-icon name="hourglass-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="completed" layout="icon-end">
+        <ion-label>Completed</ion-label>
+        <ion-icon name="golf-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="activity-container" *ngIf="selectedSegment === 'upcoming'">
+    <ion-card *ngFor="let activity of activities?.upcoming">
+      <ion-card-header>
+        <ion-card-title>{{ activity.nama_pemilihan }}</ion-card-title>
+        <ion-card-subtitle>{{ activity.tanggal_mulai | date: 'dd MMMM YYYY' }} - {{ activity.tanggal_selesai | date: 'dd
+          MMMM YYYY' }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngIf="activities?.upcoming.length === 0">
+      <ion-card-header>
+        <ion-card-title>There is no upcoming activity</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div class="activity-container" *ngIf="selectedSegment === 'running'">
+    <ion-card *ngFor="let activity of activities?.running">
+      <ion-card-header>
+        <ion-card-title>{{ activity.nama_pemilihan }}</ion-card-title>
+        <ion-card-subtitle>{{ activity.tanggal_mulai | date: 'dd MMMM YYYY' }} - {{ activity.tanggal_selesai | date: 'dd
+          MMMM YYYY' }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngIf="activities?.running.length === 0">
+      <ion-card-header>
+        <ion-card-title>There is no running activity</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div class="activity-container" *ngIf="selectedSegment === 'completed'">
+    <ion-card *ngFor="let activity of activities?.completed">
+      <ion-card-header>
+        <ion-card-title>{{ activity.nama_pemilihan }}</ion-card-title>
+        <ion-card-subtitle>{{ activity.tanggal_mulai | date: 'dd MMMM YYYY' }} - {{ activity.tanggal_selesai | date: 'dd
+          MMMM YYYY' }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngIf="activities?.completed.length === 0">
+      <ion-card-header>
+        <ion-card-title>There is no completed activity</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>

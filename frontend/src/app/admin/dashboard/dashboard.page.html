@@ -1,0 +1,88 @@
+<ion-header>
+  <img src="../../assets/logo-light.svg">
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="banner">
+    <img src="../../assets/banner.svg" />
+  </div>
+
+  <!-- dashboard count -->
+  <div class="dashboard-count" *ngIf="data">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <ion-card-title>Pemilihan</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.pemilihan}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <ion-card-title>Kandidat</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.kandidat}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <!-- text with icon -->
+              <ion-card-title>
+                User
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.user}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <ion-card-title>Kelas</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.kelas}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <ion-card-title>Jurusan</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.jurusan}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="dashboard-card">
+            <ion-card-header>
+              <ion-card-title>Total Vote</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>{{data.vote}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

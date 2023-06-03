@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tambah Kelas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Kelas Information</p>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Nama Kelas" [(ngModel)]="form.nama"></ion-input>
+    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <!-- item select -->
+  <ion-item>
+    <ion-label>Jurusan</ion-label>
+    <ion-select [(ngModel)]="form.id_jurusan">
+      <ion-select-option *ngFor="let item of jurusans" value="{{item.id}}">
+        {{item.nama}}
+      </ion-select-option>
+    </ion-select>
+    <ion-icon name="options-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <ion-button expand="block" class="main-button" color="dark" (click)="create()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Create</ion-button>
+</ion-content>
